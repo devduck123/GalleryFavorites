@@ -15,6 +15,50 @@
   margin: 0;
 }
 
+.tommyho ul {
+  list-style-type: none;
+}
+
+.tommyho > header {
+  background: white;
+  opacity: 0.8;
+  padding-bottom: 2em;
+  border-radius: 0 0 40% 40%;
+  display: grid;
+  place-content: center;
+}
+
+nav {
+  width: 50%;
+  margin-top: 1em;
+  margin-left: 20%;
+  padding: 0 1em 1em 1em;
+  border-radius: 10px;
+}
+
+#nav-link {
+  display: none;
+  margin: 1em;
+  font-size: clamp(0.7em, 1vw+0.7em, 0.9em);
+}
+
+nav:hover {
+  background: linear-gradient(to top right, #2e99d2, white);
+}
+
+nav:hover #nav-link {
+  display: block;
+}
+
+#nav-toggle {
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  background: linear-gradient(to top right, #2e99d2, white);
+  border-radius: 6%;
+  font-weight: bold;
+  padding: 0.6em;
+}
+
 #intro {
   text-align: center;
   font-size: clamp(0.6em, 0.6em + 1.5vw, 1.2em);
@@ -126,31 +170,31 @@
   text-align: left;
 }
 
-/* TEAM_ASSIGNMENT_3 */ 
+/* TEAM_ASSIGNMENT_3 */
 .btn-container {
-	background: rgb(131,58,180);
+  background: rgb(131, 58, 180);
   color: white;
-	border-radius: 5%;
-	border:1px solid white;
-	display:inline-block;
-	cursor:pointer;
-	font-size:clamp(.7em, 1vw+.7em, .85em);
-	padding:6px 12px;
+  border-radius: 5%;
+  border: 1px solid white;
+  display: inline-block;
+  cursor: pointer;
+  font-size: clamp(0.7em, 1vw+0.7em, 0.85em);
+  padding: 6px 12px;
   margin-bottom: 6px;
-	text-shadow:0px 1px 0px #C4447A;
-  transition: .4s ease-in-out;
+  text-shadow: 0px 1px 0px #c4447a;
+  transition: 0.4s ease-in-out;
   width: clamp(80px, 30%, 40%);
   margin-left: 2em;
 }
 
 .btn-container:hover {
-	transform: scale(1.1);
-  background:rgba(252,176,69,1);
-  font-weight:bold;
+  transform: scale(1.1);
+  background: rgba(252, 176, 69, 1);
+  font-weight: bold;
 }
 
 .container > i {
-  color: rgb(131,58,180);
+  color: rgb(131, 58, 180);
 }
 
 @media (prefers-reduced-motion: reduce) {

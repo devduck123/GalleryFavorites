@@ -50,14 +50,14 @@ for (let i = 0; i < images.length; i++) {
 
   let favoriteButton = document.createElement("button");
   favoriteButton.setAttribute("id", "favorite" + containerNumber);
-  favoriteButton.setAttribute("class", "btn-container")
+  favoriteButton.setAttribute("class", "btn-container");
   favoriteButton.innerHTML = "Favorite";
-  
+
   let unfavoriteButton = document.createElement("button");
-  unfavoriteButton.setAttribute("class", "btn-container")
+  unfavoriteButton.setAttribute("class", "btn-container");
   unfavoriteButton.setAttribute("id", "unfavorite" + containerNumber);
   unfavoriteButton.innerHTML = "Unfavorite";
-  
+
   let icon = document.createElement("i");
   icon.setAttribute("class", "fas fa-heart fa-2x");
   icon.setAttribute("id", "icon" + containerNumber);
@@ -66,7 +66,7 @@ for (let i = 0; i < images.length; i++) {
   // when favorite button is clicked, get the current image
   // store it as a cookie for 30 minutes, mapped to "favoritedImage"
   favoriteButton.addEventListener("click", () => {
-    let cookieName = "favoritedImage" + (i+1);
+    let cookieName = "favoritedImage" + (i + 1);
     createCookie(cookieName, images[i], 30);
 
     console.log("FAVORITED current image: " + images[i]);
@@ -74,11 +74,11 @@ for (let i = 0; i < images.length; i++) {
     favoriteButton.style.display = "none";
     icon.style.display = "inline-block";
   });
-  
+
   // when unfavorite button is clicked, get the current image
   // delete the cookie value for it
   unfavoriteButton.addEventListener("click", () => {
-    let cookieName = "favoritedImage" + (i+1);
+    let cookieName = "favoritedImage" + (i + 1);
     deleteCookie(cookieName);
 
     console.log("UNFAVORITED current image: " + images[i]);
@@ -86,13 +86,11 @@ for (let i = 0; i < images.length; i++) {
     favoriteButton.style.display = "inline-block";
     icon.style.display = "none";
   });
-  
+
   document.querySelector(containerID).appendChild(favoriteButton);
   document.querySelector(containerID).appendChild(icon);
   document.querySelector(containerID).appendChild(unfavoriteButton);
 }
-
-
 
 document.addEventListener("DOMContentLoaded", () => {
   // set icons to replace "favorite" button if the cookie exists
@@ -111,8 +109,6 @@ document.addEventListener("DOMContentLoaded", () => {
       icon.style.display = "none";
     }
   }
-
-
 });
 
 // functions

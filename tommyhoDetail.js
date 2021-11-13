@@ -15,15 +15,24 @@ document.addEventListener("DOMContentLoaded", function () {
   // console.log(urlParameters.search.img);
 
   // render specific image src from querystring
-  document.querySelector("#img-detail").src = urlParameters.search.img;
+  let imgSrc = urlParameters.search.img;
+  document.querySelector("#img-detail").src = imgSrc;
   // render specific caption from querystring
   document.querySelector("#caption-detail").innerHTML =
     urlParameters.search.caption.replace(/%20/g, " ").replace(/%27/g, "'");
   // render specific description from querystring
   document.querySelector("#description-detail").innerHTML =
     urlParameters.search.description.replace(/%20/g, " ").replace(/%27/g, "'");
-});
 
+  // if this img in cookie, set icon display to true
+  // get imageNo from the url parameter (img) => s.length-5
+  // CONSTRAINT: imageNo can ONLY be single-digit, OR use RegEx
+  let imageNo = imgSrc.charAt(imgSrc.length - 5);
+  if (document.cookie.includes(imageNo)) {
+    // console.log('cookie here');
+    document.querySelector(".detail-icon").style.display = "inline-block";
+  }
+});
 
 // ********** PROVIDED FUNCTIONS **********
 function breakUpURLParameters(url) {
