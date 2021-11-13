@@ -58,6 +58,11 @@ for (let i = 0; i < images.length; i++) {
   unfavoriteButton.setAttribute("id", "unfavorite" + containerNumber);
   unfavoriteButton.innerHTML = "Unfavorite";
   
+  let icon = document.createElement("i");
+  icon.setAttribute("class", "fas fa-heart fa-2x");
+  icon.setAttribute("id", "icon" + containerNumber);
+  icon.style.display = "none";
+
   // when favorite button is clicked, get the current image
   // store it as a cookie for 30 minutes, mapped to "favoritedImage"
   favoriteButton.addEventListener("click", () => {
@@ -67,6 +72,7 @@ for (let i = 0; i < images.length; i++) {
     console.log("FAVORITED current image: " + images[i]);
 
     favoriteButton.style.display = "none";
+    icon.style.display = "inline-block";
   });
   
   // when unfavorite button is clicked, get the current image
@@ -78,11 +84,14 @@ for (let i = 0; i < images.length; i++) {
     console.log("UNFAVORITED current image: " + images[i]);
 
     favoriteButton.style.display = "inline-block";
+    icon.style.display = "none";
   });
-
+  
   document.querySelector(containerID).appendChild(favoriteButton);
+  document.querySelector(containerID).appendChild(icon);
   document.querySelector(containerID).appendChild(unfavoriteButton);
 }
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -91,12 +100,15 @@ document.addEventListener("DOMContentLoaded", () => {
     let containerNumber = i + 1;
     let cookieName = "favoritedImage" + containerNumber;
     let favoriteButton = document.querySelector("#favorite" + containerNumber);
+    let icon = document.querySelector("#icon" + containerNumber);
 
     if (getCookie(cookieName) != null) {
       // document.querySelector("#container" + (i+1)).style.backgroundColor = "red";
       favoriteButton.style.display = "none";
+      icon.style.display = "inline-block";
     } else {
       favoriteButton.style.display = "inline-block";
+      icon.style.display = "none";
     }
   }
 

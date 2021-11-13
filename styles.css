@@ -149,6 +149,10 @@
   font-weight:bold;
 }
 
+.container > i {
+  color: rgb(131,58,180);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   ::before,
